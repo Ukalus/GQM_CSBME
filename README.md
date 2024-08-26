@@ -20,7 +20,7 @@ The best, blazingly fast solution for your GQM needs
 ### Usecase-Diagram
 
 ### ER-Diagram
-
+![doku/ER_Diagram.drawio.svg](doku/ER_Diagram.drawio.svg)
 ## Frontend 
 
 ### Sitemaps
