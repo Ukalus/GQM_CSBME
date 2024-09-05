@@ -1,1 +1,2 @@
-docker run --name some-mysql -v sql/init.sql:/docker-entrypoint-initdb.d  -e MYSQL_ROOT_PASSWORD=mysecretpassword -d mysql:9.0.1
+
+docker run --name GQM_db -p 5432:5432 -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=mysecretpassword -v ./sql/initial_schema.sql:/docker-entrypoint-initdb.d/init.sql -d postgres
