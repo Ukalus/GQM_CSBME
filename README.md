@@ -7,7 +7,7 @@ The best, blazingly fast solution for your GQM needs
 
 - Frontend (Nico)
 - Backend (Lucas)
-- DevOps (Philip)
+- DevOps (Philippe)
 - Design (Anton)
 
 ### Techstack
