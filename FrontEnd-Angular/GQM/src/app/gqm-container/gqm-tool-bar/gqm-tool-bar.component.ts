@@ -26,7 +26,7 @@ import { Y } from '@angular/cdk/keycodes';
 })
 export class GqmToolBarComponent {
   readonly dialog = inject(MatDialog);
-  GqmList:Array<any> = ["eins","kein"]
+  GqmList:Array<any> = ["eins", "keins"]
 
 
   AddDialog(section:number):void{
@@ -47,7 +47,7 @@ export class GqmToolBarComponent {
 
 @Component({
   encapsulation: ViewEncapsulation.None,
-  selector: 'app-DeletDialog',
+  selector: 'app-dialogs',
   standalone: true,
   imports: [
     MatButtonModule,
@@ -57,18 +57,18 @@ export class GqmToolBarComponent {
     MatFormFieldModule,
     MatDialogModule
   ],
-  templateUrl: './deletdialog.html',
-  styleUrl: './deletdialog.html'
+  templateUrl: './dialogs.html',
+  styleUrl: './dialogs.html'
 })
-export class deletDialog{
-  
-   title:string = "Kein Tittle gesetzt"
-    type:number = 0; //soll angeben in welcher spalte der Tabelle 
+export class dialogs{
+
+   title:string = "Kein Titel gesetzt"
+    type:number = 0; //soll angeben in welcher spalte der Tabelle
 
   ngOnInit(){
-    console.log("test ob der Dialog auch iniziealisiert wird")
+    console.log("Test, ob der Dialog auch initialisiert wird")
   }
 }
-export interface DeletDialogData{
+export interface dialogData {
   type:number
 }
