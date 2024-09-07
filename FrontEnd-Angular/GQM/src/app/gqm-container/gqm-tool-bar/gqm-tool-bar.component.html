@@ -1,27 +1,24 @@
 <div class="wrapper">
 
     <div class="headerSection">
-        <mat-form-field class="header">
-            <mat-label>GQM Auswählen</mat-label>
-            <select id="cars" name="carlist" form="carform">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="opel">Opel</option>
-                <option value="audi">Audi</option>
-              </select>
-          </mat-form-field>
+        <select id="cars" name="carlist" form="carform" >
+            <option *ngFor="let i of GqmList" value="huhuhurenshn">test</option>
+        </select>
     </div>
 
-    <div class="goalSection">
-
+    <div class="questionSection" >
+        <button type="button" (click)="AddDialog(1)">Add Goal</button>
+        <button type="button" (click)="DeletDialog(1)">Delet Goal</button>
     </div>
     
     <div class="questionSection">
-
+        <button type="button" (click)="AddDialog(2)">Add Quetion</button>
+        <button type="button" (click)="DeletDialog(2)">Delet Question</button>
     </div>
     
     <div class="metricSection">
-        
+        <button type="button" (click)="AddDialog(3)">Add Metric</button>
+        <button type="button" (click)="DeletDialog(3)">Delet Metric</button>
     </div>
     
 </div>
