@@ -32,8 +32,8 @@ export class GqmToolBarComponent {
   AddDialog(section:number):void{
     console.log(section)
    }
-  DeletDialog(section:number):void{
-    const dialogRef = this.dialog.open(deletDialog, {
+  dialogs(section:number):void{
+    const dialogRef = this.dialog.open(dialogs, {
       //data: {name: this.type()},
     });
 
