@@ -12,14 +12,17 @@ The best, blazingly fast solution for your GQM needs
 
 ### Techstack
 
-- MySQL(Datenbank) 
+- PostgreSQL (Datenbank) 
 - Kubernetes (Deployment)
+  - Deployment (Front-/Backend)
+  - Service (Front-/Backend)
+  - Ingress (Frontend)
 - Angular (Frontend)
 - Go (Backend)
 
-### Usecase-Diagram
+### Use-Case-Diagramm
 
-### ER-Diagram
+### ER-Diagramm
 ![doku/ER_Diagram.drawio.svg](doku/ER_Diagram.drawio.svg)
 ## Frontend 
 
