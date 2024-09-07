@@ -32,10 +32,10 @@ jobs:
 
       - name: build/push frontend
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/frontend:latest ./FrontEnd-Angular/GQM
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:latest ./FrontEnd-Angular/GQM
           docker push ${{ secrets.DOCKER_USERNAME }}/frontend:latest
 
       - name: build/push backend
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/backend:latest ./go_backend
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/gqm-backend:latest ./go_backend
           docker push ${{ secrets.DOCKER_USERNAME }}/backend:latest
