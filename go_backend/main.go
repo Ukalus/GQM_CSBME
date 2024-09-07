@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	_ "github.com/lib/pq"
 )
@@ -28,13 +29,20 @@ type Metric struct {
 	UnitMessure string `json:"unitmessure"`
 }
 
+func env(key, def string) string {
+	if value, exists := os.LookupEnv(key); exists {
+		return value
+	}
+	return def
+}
+
 // SQL query functions
-const (
-	host     = "localhost"
+var (
+	host     = env("POSTGRES_HOST", "localhost")
 	port     = 5432
-	user     = "admin"
-	password = "mysecretpassword"
-	dbname   = "admin"
+	user     = env("POSTGRES_USER", "admin")
+	password = env("POSTGRES_PASSWORD", "mysecretpassword")
+	dbname   = env("POSTGRES_DB", "admin")
 )
 
 type HandlerWithDB func(http.ResponseWriter, *http.Request, *sql.DB)
