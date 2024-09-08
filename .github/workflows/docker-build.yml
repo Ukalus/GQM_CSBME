@@ -31,7 +31,6 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: set tag
-        id: version
         run: echo "VERSION=${{ github.run_number }}" >> $GITHUB_ENV
 
       - name: build images
