@@ -40,7 +40,7 @@ jobs:
 
       - name: push images
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/gqm-backend:0.${{ env.VERSION }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/gqm-backend:0.${{ env.VERSION }}.0
           docker push ${{ secrets.DOCKER_USERNAME }}/gqm-backend:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:0.${{ env.VERSION }}.0
           docker push ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:latest
