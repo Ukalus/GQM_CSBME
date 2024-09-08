@@ -43,3 +43,6 @@ Diese App wird auf einem privaten Kubernetes-Cluster ausgerollt und ist öffentl
 
 Dafür wurden einzelne Deployments mit zugehörigem Service und Ingress für das Backend und das Frontend und ein HelmRelease für eine PostgreSQL-Datenbank angelegt und ausgerollt.
 Darüber hinaus befindet sich auf dem Cluster ein HelmRelease für wichtige Cluster-Management-Resourcen wie z.B. eine Grafana-, eine Prometheus- und eine Traefik-Instanz.
+
+In diesem Repository getätigte Änderungen triggern einen GitHub-Workflow, der automatisch sowohl das Front-, als auch das Backend neu baut und als Docker-Image in die Default Registry pusht.
+Dieses jeweilige Image wird vom Kubernetes-Cluster durch die Nutzung des Flux Helm Controllers und der dort integrierten Image Update Automation automatisiert neu ausgerollt.
