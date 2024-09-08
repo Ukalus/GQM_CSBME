@@ -30,12 +30,18 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: build/push frontend
-        run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:latest ./FrontEnd-Angular/GQM
-          docker push ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:latest
+      - name: set tag
+        id: version
+        run: echo "VERSION=${{ github.run_number }}" >> $GITHUB_ENV
 
-      - name: build/push backend
+      - name: build images
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/gqm-backend:latest ./go_backend
-          docker push ${{ secrets.DOCKER_USERNAME }}/gqm-backend:latest
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:${{ VERSION }} -t ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:latest ./FrontEnd-Angular/GQM
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/gqm-backend:${{ VERSION }} -t ${{ secrets.DOCKER_USERNAME }}/gqm-backend:latest ./go_backend
+
+      - name: push images
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/gqm-backend:${{ VERSION }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/gqm-backend:${{ VERSION }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/gqm-backend:${{ VERSION }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:${{ VERSION }}
