@@ -35,3 +35,11 @@ The best, blazingly fast solution for your GQM needs
 ### Datenstrukturen
 
 ### API
+
+## Deployment
+
+### Kubernetes
+Diese App wird auf einem privaten Kubernetes-Cluster ausgerollt und ist öffentlich erreichbar.
+
+Dafür wurden einzelne Deployments mit zugehörigem Service und Ingress für das Backend und das Frontend und ein HelmRelease für eine PostgreSQL-Datenbank angelegt und ausgerollt.
+Darüber hinaus befindet sich auf dem Cluster ein HelmRelease für wichtige Cluster-Management-Resourcen wie z.B. eine Grafana-, eine Prometheus- und eine Traefik-Instanz.
