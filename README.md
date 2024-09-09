@@ -45,3 +45,10 @@ Dafür wurde ein für diese Anwendungen entwickeltes [HelmChart](https://github.
 
 In diesem Repository getätigte Änderungen triggern einen GitHub-Workflow, welcher Front- und Backend-Ordner (./FrontEnd-Angular/GQM/ bzw. ./go_backend/) auf Änderungen prüft und bei vorhandenen Änderungen ein neues Image baut.
 Dieses jeweilige Image wird vom Kubernetes-Cluster durch die Nutzung des Flux Helm Controllers und der dort integrierten Image Update Automation automatisiert neu ausgerollt.
+
+### Resourcen in der Einzelübersicht
+![deployment](./doku/deployments.png)
+![statefulset](./doku/statefulset.png)
+![pods](./doku/pods.png)
+![services](./doku/services.png)
+![ingresses](./doku/ingresses.png)
