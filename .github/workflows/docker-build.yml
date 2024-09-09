@@ -1,4 +1,4 @@
-name: build on push
+name: Build GQM Docker images
 
 on:
   push:
@@ -10,13 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: docker buildx
+      - name: Fetch full history
+        run: git fetch --prune --unshallow
+
+      - name: Setup docker build tool
         uses: docker/setup-buildx-action@v2
 
-      - name: docker-layer cache
+      - name: Prepare docker-layer cache
         uses: actions/cache@v3
         with:
           path: /tmp/.buildx-cache
@@ -24,46 +27,31 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-buildx-
 
-      - name: docker.io login
+      - name: Log in to docker.io
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: set tag
+      - name: Set version tag
         run: echo "VERSION=${{ github.run_number }}" >> $GITHUB_ENV
 
-      - name: check for changes
-        id: check-changes
+      - name: Check for code changes
         run: |
-          if git diff --name-only HEAD^ HEAD | grep '^FrontEnd-Angular/GQM/' > /dev/null; then
-            echo "Frontend changed"
-            echo "FRONTEND_CHANGED=true" >> $GITHUB_ENV
-          else
-            echo "Frontend unchanged"
-            echo "FRONTEND_CHANGED=false" >> $GITHUB_ENV
-          fi
-          if git diff --name-only HEAD^ HEAD | grep '^go_backend/' > /dev/null; then
-            echo "Backend changed"
-            echo "BACKEND_CHANGED=true" >> $GITHUB_ENV
-          else
-            echo "Backend unchanged"
-            echo "BACKEND_CHANGED=false" >> $GITHUB_ENV
-          fi
+          echo "Checking for changes..."
+          FRONTEND_CHANGED=$(git diff --name-only HEAD^ HEAD | grep '^FrontEnd-Angular/GQM/' > /dev/null && echo "true" || echo "false")
+          BACKEND_CHANGED=$(git diff --name-only HEAD^ HEAD | grep '^go_backend/' > /dev/null && echo "true" || echo "false")
+          echo "FRONTEND_CHANGED=${FRONTEND_CHANGED}" >> $GITHUB_ENV
+          echo "BACKEND_CHANGED=${BACKEND_CHANGED}" >> $GITHUB_ENV
 
-      - name: check backend
-        id: backend-check
-        run: |
-          git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '^go_backend/' || echo "no changes" > /dev/null
-
-      - name: frontend build / push
+      - name: Build and push Frontend
         if: env.FRONTEND_CHANGED == 'true'
         run: |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:0.${{ env.VERSION }}.0 -t ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:latest ./FrontEnd-Angular/GQM
           docker push ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:0.${{ env.VERSION }}.0
           docker push ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:latest
 
-      - name: backend build / push
+      - name: Build and push Backend
         if: env.BACKEND_CHANGED == 'true'
         run: |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/gqm-backend:0.${{ env.VERSION }}.0 -t ${{ secrets.DOCKER_USERNAME }}/gqm-backend:latest ./go_backend
