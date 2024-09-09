@@ -34,7 +34,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Set version tag
-        run: echo "VERSION=${{ github.run_number }}" >> $GITHUB_ENV
+        run: echo "VERSION=0.${{ github.run_number }}.0" >> $GITHUB_ENV
 
       - name: Check for code changes
         run: |
@@ -47,13 +47,13 @@ jobs:
       - name: Build and push Frontend
         if: env.FRONTEND_CHANGED == 'true'
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:0.${{ env.VERSION }}.0 -t ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:latest ./FrontEnd-Angular/GQM
-          docker push ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:0.${{ env.VERSION }}.0
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:${{ env.VERSION }} -t ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:latest ./FrontEnd-Angular/GQM
+          docker push ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:${{ env.VERSION }}
           docker push ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:latest
 
       - name: Build and push Backend
         if: env.BACKEND_CHANGED == 'true'
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/gqm-backend:0.${{ env.VERSION }}.0 -t ${{ secrets.DOCKER_USERNAME }}/gqm-backend:latest ./go_backend
-          docker push ${{ secrets.DOCKER_USERNAME }}/gqm-backend:0.${{ env.VERSION }}.0
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/gqm-backend:${{ env.VERSION }} -t ${{ secrets.DOCKER_USERNAME }}/gqm-backend:latest ./go_backend
+          docker push ${{ secrets.DOCKER_USERNAME }}/gqm-backend:${{ env.VERSION }}
           docker push ${{ secrets.DOCKER_USERNAME }}/gqm-backend:latest
