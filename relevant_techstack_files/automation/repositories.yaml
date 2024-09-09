@@ -1,0 +1,26 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+metadata:
+  name: darkoro-gqm-frontend
+  namespace: flux
+spec:
+  image: docker.io/darkoro/gqm-frontend
+  interval: 1m
+  accessFrom:
+    namespaceSelectors:
+      - matchLabels:
+          imageAutomation: "true"
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+metadata:
+  name: darkoro-gqm-backend
+  namespace: flux
+spec:
+  image: docker.io/darkoro/gqm-backend
+  interval: 1m
+  accessFrom:
+    namespaceSelectors:
+      - matchLabels:
+          imageAutomation: "true"
