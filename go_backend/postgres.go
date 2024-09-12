@@ -31,7 +31,7 @@ func getGoals(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	rows, err := db.Query("SELECT * FROM GQM.goal;")
 	if err != nil {
 		fmt.Println("Query didn't work")
-		log.Fatal(err)
+		log.Println(err)
 	}
 	defer rows.Close()
 	var goals []Goal
@@ -56,7 +56,6 @@ func getGoalById(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	var slug string
 	const path = "/goals/"
 	if strings.HasPrefix(r.URL.Path, path) {
-
 		slug = r.URL.Path[len(path):]
 	}
 	fmt.Println("the slug is: ", slug)
@@ -64,7 +63,7 @@ func getGoalById(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	rows, err := db.Query("SELECT * FROM GQM.goal WHERE id =" + slug + ";")
 	if err != nil {
 		fmt.Println("Query didn't work")
-		log.Fatal(err)
+		log.Println(err)
 	}
 	defer rows.Close()
 	var goals []Goal
@@ -94,7 +93,7 @@ func insertGoal(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	}
 
 	// Prepare the SQL statement
-	query := `INSERT INTO GQM.goal (id, g_name, description) VALUES ($1, $2)`
+	query := `INSERT INTO GQM.goal (id, g_name, description) VALUES ($1, $2);`
 	_, err := db.Exec(query, goal.Name, goal.Description)
 	if err != nil {
 		http.Error(w, "Failed to insert into database", http.StatusInternalServerError)
@@ -111,7 +110,6 @@ func deleteGoalById(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	var slug string
 	const path = "/goals/delete/"
 	if strings.HasPrefix(r.URL.Path, path) {
-
 		slug = r.URL.Path[len(path):]
 	}
 	fmt.Println("the slug is: ", slug)
@@ -119,7 +117,7 @@ func deleteGoalById(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	ans, err := db.Query("DELETE FROM GQM.goal WHERE id =" + slug + ";")
 	if err != nil {
 		fmt.Println("Query didn't work")
-		log.Fatal(err)
+		log.Println(err)
 	}
 	if ans != nil {
 		fmt.Println(ans)
@@ -130,7 +128,7 @@ func getQuestions(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	rows, err := db.Query("SELECT * FROM GQM.question;")
 	if err != nil {
 		fmt.Println("Query didn't work")
-		log.Fatal(err)
+		log.Println(err)
 	}
 	defer rows.Close()
 	var questions []Question
@@ -155,14 +153,13 @@ func getQuestionById(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	var slug string
 	const path = "/questions/"
 	if strings.HasPrefix(r.URL.Path, path) {
-
 		slug = r.URL.Path[len(path):]
 	}
 	fmt.Println("the slug is: ", slug)
 	rows, err := db.Query("SELECT * FROM GQM.question WHERE id =" + slug + ";")
 	if err != nil {
 		fmt.Println("Query didn't work")
-		log.Fatal(err)
+		log.Println(err)
 	}
 	defer rows.Close()
 	var questions []Question
@@ -192,7 +189,7 @@ func insertQuestion(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	}
 
 	// Prepare the SQL statement
-	query := `INSERT INTO GQM.question (id, text) VALUES ($1)`
+	query := `INSERT INTO GQM.question (id, text) VALUES ($1);`
 	_, err := db.Exec(query, question.Text)
 	if err != nil {
 		http.Error(w, "Failed to insert into database", http.StatusInternalServerError)
@@ -209,7 +206,6 @@ func deleteQuestionById(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	var slug string
 	const path = "/questions/delete/"
 	if strings.HasPrefix(r.URL.Path, path) {
-
 		slug = r.URL.Path[len(path):]
 	}
 	fmt.Println("the slug is: ", slug)
@@ -217,7 +213,7 @@ func deleteQuestionById(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	ans, err := db.Query("DELETE FROM GQM.question WHERE id =" + slug + ";")
 	if err != nil {
 		fmt.Println("Query didn't work")
-		log.Fatal(err)
+		log.Println(err)
 	}
 	if ans != nil {
 		fmt.Println(ans)
@@ -228,7 +224,7 @@ func getMetrics(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	rows, err := db.Query("SELECT * FROM GQM.metric;")
 	if err != nil {
 		fmt.Println("Query didn't work")
-		log.Fatal(err)
+		log.Println(err)
 	}
 	defer rows.Close()
 	var metrics []Metric
@@ -253,14 +249,13 @@ func getMetricById(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	var slug string
 	const path = "/metrics/"
 	if strings.HasPrefix(r.URL.Path, path) {
-
 		slug = r.URL.Path[len(path):]
 	}
 	fmt.Println("the slug is: ", slug)
 	rows, err := db.Query("SELECT * FROM GQM.metric WHERE id =" + slug + ";")
 	if err != nil {
 		fmt.Println("Query didn't work")
-		log.Fatal(err)
+		log.Println(err)
 	}
 	defer rows.Close()
 	var metrics []Metric
@@ -290,7 +285,7 @@ func insertMetric(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	}
 
 	// Prepare the SQL statement
-	query := `INSERT INTO GQM.metric (source, value, unit_messure) VALUES ($1, $2, $3)`
+	query := `INSERT INTO GQM.metric (source, value, unit_messure) VALUES ($1, $2, $3);`
 	_, err := db.Exec(query, metric.Source, metric.Value, metric.UnitMessure)
 	if err != nil {
 		http.Error(w, "Failed to insert into database", http.StatusInternalServerError)
@@ -315,7 +310,7 @@ func deleteMetricById(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	ans, err := db.Query("DELETE FROM GQM.metric WHERE id =" + slug + ";")
 	if err != nil {
 		fmt.Println("Query didn't work")
-		log.Fatal(err)
+		log.Println(err)
 	}
 	if ans != nil {
 		fmt.Println(ans)
