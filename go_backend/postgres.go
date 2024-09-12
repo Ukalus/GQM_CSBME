@@ -93,7 +93,7 @@ func insertGoal(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	}
 
 	// Prepare the SQL statement
-	query := `INSERT INTO GQM.goal (id, g_name, description) VALUES ($1, $2);`
+	query := "INSERT INTO GQM.goal (id, g_name, description) VALUES ($1, $2);"
 	_, err := db.Exec(query, goal.Name, goal.Description)
 	if err != nil {
 		http.Error(w, "Failed to insert into database", http.StatusInternalServerError)
@@ -189,7 +189,7 @@ func insertQuestion(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	}
 
 	// Prepare the SQL statement
-	query := `INSERT INTO GQM.question (id, text) VALUES ($1);`
+	query := "INSERT INTO GQM.question (id, text) VALUES ($1);"
 	_, err := db.Exec(query, question.Text)
 	if err != nil {
 		http.Error(w, "Failed to insert into database", http.StatusInternalServerError)
@@ -285,7 +285,7 @@ func insertMetric(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	}
 
 	// Prepare the SQL statement
-	query := `INSERT INTO GQM.metric (source, value, unit_messure) VALUES ($1, $2, $3);`
+	query := "INSERT INTO GQM.metric (source, value, unit_messure) VALUES ($1, $2, $3);"
 	_, err := db.Exec(query, metric.Source, metric.Value, metric.UnitMessure)
 	if err != nil {
 		http.Error(w, "Failed to insert into database", http.StatusInternalServerError)
