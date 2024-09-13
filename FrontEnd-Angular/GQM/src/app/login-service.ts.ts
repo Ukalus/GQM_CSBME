@@ -8,6 +8,9 @@ export class LoginServiceTs {
         private  http: HttpClient,
         private ConfigService:ConfigServiceTs,
      ){   
+           
     }
-    
+    ngOnInit(){
+            
+    }     
 }

@@ -1,2 +1,2 @@
-<!-- <app-login-page>t</app-login-page> -->
-<app-gqm-container class="gqm-container"></app-gqm-container>
+<app-login-page *ngIf="!this.logedIn" (loggedInChange)="onLogedInInChange($event)"></app-login-page>
+<app-gqm-container class="gqm-container" *ngIf="this.logedIn"></app-gqm-container>

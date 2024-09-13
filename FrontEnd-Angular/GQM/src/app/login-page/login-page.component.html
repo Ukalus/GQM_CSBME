@@ -1,5 +1,5 @@
 <div class="login-box">
-    <input type="text" #name class="login-Field" placeholder="Name">
-    <input type="text" #passwort class="login-Field" placeholder="Passwort">
-    <button type="button" class="Login-Button">Login</button>
+    <input type="text"  class="login-Field" placeholder="Name"[(ngModel)]="name" (keyup)="validadeName()">
+    <input type="password" #passwort class="login-Field" [(ngModel)]="password" placeholder="Passwort">
+    <button type="button" id="button" class="Login-Button" (click)="login()">Login</button>
 </div>
