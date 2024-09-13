@@ -1,0 +1,26 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImagePolicy
+metadata:
+  name: darkoro-gqm-frontend
+  namespace: flux
+spec:
+  imageRepositoryRef:
+    name: darkoro-gqm-frontend
+    namespace: flux
+  policy:
+    semver:
+      range: 0.x.x
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImagePolicy
+metadata:
+  name: darkoro-gqm-backend
+  namespace: flux
+spec:
+  imageRepositoryRef:
+    name: darkoro-gqm-backend
+    namespace: flux
+  policy:
+    semver:
+      range: 0.x.x

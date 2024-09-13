@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: itd-csbme
+  labels:
+    imageAutomation: "true"
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: flux

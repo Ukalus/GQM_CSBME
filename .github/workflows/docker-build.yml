@@ -1,4 +1,4 @@
-name: build on push
+name: Build GQM Docker images
 
 on:
   push:
@@ -10,13 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: docker buildx
+      - name: Fetch full history
+        run: git fetch --prune --unshallow
+
+      - name: Setup docker build tool
         uses: docker/setup-buildx-action@v2
 
-      - name: docker-layer cache
+      - name: Prepare docker-layer cache
         uses: actions/cache@v3
         with:
           path: /tmp/.buildx-cache
@@ -24,18 +27,33 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-buildx-
 
-      - name: docker.io login
+      - name: Log in to docker.io
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: build/push frontend
+      - name: Set version tag
+        run: echo "VERSION=0.${{ github.run_number }}.0" >> $GITHUB_ENV
+
+      - name: Check for code changes
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:latest ./FrontEnd-Angular/GQM
+          echo "Checking for changes..."
+          FRONTEND_CHANGED=$(git diff --name-only HEAD^ HEAD | grep '^FrontEnd-Angular/GQM/' > /dev/null && echo "true" || echo "false")
+          BACKEND_CHANGED=$(git diff --name-only HEAD^ HEAD | grep '^go_backend/' > /dev/null && echo "true" || echo "false")
+          echo "FRONTEND_CHANGED=${FRONTEND_CHANGED}" >> $GITHUB_ENV
+          echo "BACKEND_CHANGED=${BACKEND_CHANGED}" >> $GITHUB_ENV
+
+      - name: Build and push Frontend
+        if: env.FRONTEND_CHANGED == 'true'
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:${{ env.VERSION }} -t ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:latest ./FrontEnd-Angular/GQM
+          docker push ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:${{ env.VERSION }}
           docker push ${{ secrets.DOCKER_USERNAME }}/gqm-frontend:latest
 
-      - name: build/push backend
+      - name: Build and push Backend
+        if: env.BACKEND_CHANGED == 'true'
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/gqm-backend:latest ./go_backend
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/gqm-backend:${{ env.VERSION }} -t ${{ secrets.DOCKER_USERNAME }}/gqm-backend:latest ./go_backend
+          docker push ${{ secrets.DOCKER_USERNAME }}/gqm-backend:${{ env.VERSION }}
           docker push ${{ secrets.DOCKER_USERNAME }}/gqm-backend:latest

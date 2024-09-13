@@ -1,0 +1,52 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: gqm-system
+  namespace: itd-csbme
+spec:
+  chart:
+    spec:
+      chart: gqm-system
+      sourceRef:
+        kind: HelmRepository
+        namespace: flux
+        name: jpkraemer-mg
+      version: 0.x.x
+  interval: 1m
+  values:
+    backend:
+      image:
+        tag: 0.25.0 # {"$imagepolicy": "flux:darkoro-gqm-backend:tag"}
+      extraEnv:
+      ingress:
+        enabled: true
+        host: "gqm-backend.darkoro.org"
+        existingCertificate: "darkoro-org-wildcard-certificate"
+      resources:
+        requests:
+          cpu: 16m
+          memory: 64Mi
+        limits:
+          cpu: 256m
+          memory: 1Gi
+    frontend:
+      image:
+        tag: 0.25.0 # {"$imagepolicy": "flux:darkoro-gqm-frontend:tag"}
+      ingress:
+        enabled: true
+        host: "gqm.darkoro.org"
+        existingCertificate: "darkoro-org-wildcard-certificate"
+      resources:
+        requests:
+          cpu: 16m
+          memory: 64Mi
+        limits:
+          cpu: 256m
+          memory: 1Gi
+    postgresql:
+      auth:
+        postgresPassword: mysecretpassword
+        username: admin
+        password: mysecretpassword
+        database: gqm
