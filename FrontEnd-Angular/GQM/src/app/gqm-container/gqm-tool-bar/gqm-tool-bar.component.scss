@@ -9,12 +9,12 @@
     border:2px solid yellow;
     overflow:hidden;
 }
-.questionSection,.metricSection,.gaolSections{
+.questionSection,.metricSection,.goalSection{
     display: flex;
     justify-content: center; /* Horizontal zentrieren */
     align-items: center;    /* Vertikal zentrieren */
     min-height: 30%;
-    border:2px solid aqua;    
+    border:2px solid aqua;
 }
 #cars, .header{
     width: 100%;

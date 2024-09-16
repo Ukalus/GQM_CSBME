@@ -15,7 +15,7 @@ import { Observable } from 'rxjs';
 export class LoginPageComponent {
 
   @Output() loggedInChange: EventEmitter<boolean> = new EventEmitter<boolean>();
-    public name:string = " "; 
+    public name:string = " ";
     password:string = "";
     private nameRegex = /^[A-Za-z]{4,}$/;
     public validLoginInformation:boolean=false;
@@ -26,7 +26,7 @@ export class LoginPageComponent {
       this.name=""
       this.button = document.getElementById('button') as HTMLButtonElement;
       this.button.disabled = true;
-    
+
     }
 
     login():void{
@@ -36,11 +36,11 @@ export class LoginPageComponent {
         this.loggedInChange.emit(true);
       }else{          //toggle error animation
         this.password = "";
-      } 
+      }
 
     }
 
-    validadeName():void{
+    validateName():void{
       if(this.nameRegex.test(this.name)){
         this.validLoginInformation = true;
         this.button.disabled = false;
