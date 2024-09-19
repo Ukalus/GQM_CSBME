@@ -1,6 +1,6 @@
 version: '3'
 services:
-  &postgres postgres:
+  postgres:
     image: postgres
     environment:
       POSTGRES_USER: admin
@@ -8,6 +8,7 @@ services:
       POSTGRES_DB: admin
     volumes:
       - "./db:/var/lib/postgresql/data"
+      - "./sql:/tmp/sql"
     ports:
       - "5432:5432"
     healthcheck:
@@ -22,7 +23,8 @@ services:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: nimda
       POSTGRES_DB: admin
-      POSTGRES_HOST: *postgres
+      POSTGRES_HOST: postgres
+      FRONTEND_URL: frontend
     ports:
       - "8080:8080"
     depends_on:
@@ -31,6 +33,9 @@ services:
 
   frontend:
     build: ./FrontEnd-Angular/GQM
+    entrypoint: ["/bin/bash", "-c", "npm start"]
+    environment:
+      BACKEND_URL: backend
     ports:
       - "4200:4200"
     depends_on:
