@@ -28,11 +28,7 @@ type Metric struct {
 }
 
 func enableCors(w *http.ResponseWriter) {
-<<<<<<< HEAD
-	(*w).Header().Set("Access-Control-Allow-Origin", "*")
-=======
-	(*w).Header().Set("Access-Control-Allow-Origin", "https://gqm.darkoro.org https://gqm-dev.darkoro.org http://localhost:4200 http://localhost:8080")
->>>>>>> 6f3b9b3405592769dcbe292bcf21d0628dec9468
+	(*w).Header().Set("Access-Control-Allow-Origin", "https://gqm.darkoro.org https://gqm-dev.darkoro.org https://gqm-backend.darkoro.org https://gqm-backend-dev.darkoro.org http://localhost:4200 http://localhost:8080")
 }
 
 func getGoals(w http.ResponseWriter, r *http.Request, db *sql.DB) {
