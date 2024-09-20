@@ -3,3 +3,5 @@
 FrontEnd-Angular/GQM/.vscode
 db
 FrontEnd-Angular/GQM/package.json
+node_modules
+FrontEnd-Angular/GQM/node_modules
