@@ -22,13 +22,5 @@ export class GQMlayerComponent {
   constructor(){
 
   }
-  public getGoals():GoalComponent{
-    return this.Goals;
-  }
-  public getQuestions():QuestionComponent{
-    return this.Questions;
-  }
-  public getMetrics():MetricComponent{
-    return this.Metrics;
-  }
+
 }

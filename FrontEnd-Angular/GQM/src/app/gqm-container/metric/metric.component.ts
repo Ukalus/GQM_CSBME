@@ -9,4 +9,17 @@ import { Component } from '@angular/core';
 })
 export class MetricComponent {
 
+  private metrics:Array<any> = [];
+
+  public  setMetrics(metrics:Array<any>):void{
+    for(let metric of metrics){
+      this.metrics.push(metric);
+    }
+    console.log("Hier wurden jetzt die Metrics in MetricComponent gesetzt");
+    console.log(metrics);
+  }
+
+  public getMetrics():Array<any>{
+    return this.metrics
+  }
 }

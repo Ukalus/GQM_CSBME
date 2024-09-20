@@ -1,10 +1,10 @@
-import { Component, Input, NgModule, OnInit ,OnChanges, SimpleChanges} from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { GQMContainerComponent } from './gqm-container/gqm-container.component';
-import { LoginServiceTs } from './login-service.ts';
-import { LoginPageComponent } from './login-page/login-page.component';
-import { Observable } from 'rxjs';
+import { GQMContainerComponent } from './gqm-container/gqm-container.component.js';
+import { LoginPageComponent } from './login-page/login-page.component.js';
+import { ConfigServiceTs } from './config-service.ts';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -14,27 +14,26 @@ import { Observable } from 'rxjs';
     GQMContainerComponent,
     LoginPageComponent,
     CommonModule,
+    HttpClientModule // Stelle sicher, dass dies hier importiert ist
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
-
 export class AppComponent {
-  
   title = 'GQM';
-  logedIn:boolean = false ; 
-  LoginService:Observable<any> =  new Observable((obser)=> {
+  logedIn: boolean = false;
 
-  })
-  constructor(){
-    
+  constructor(private configService: ConfigServiceTs) {
+    this.configService.loadConfig().subscribe((config: any) => {
+      console.log(config);
+    });
   }
 
-  ngOnInit(){
-    const loginPage = new LoginPageComponent();
+  ngOnInit() {
     this.logedIn = false;
-
   }
+
+
   onLogedInInChange(loggedInStatus: any) {
     if(loggedInStatus)
     this.logedIn = loggedInStatus;

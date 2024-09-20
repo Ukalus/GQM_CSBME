@@ -25,16 +25,22 @@ export class LoginPageComponent {
     ngOnInit(){
       this.name=""
       this.button = document.getElementById('button') as HTMLButtonElement;
+
       this.button.disabled = true;
 
     }
 
     login():void{
-      console.log(this.name,this.password)
       if(this.password === "SYSADM" && this.name === "SYSADM"){       //hardcorded ATM
-      console.log("richtiges pwd")
+        console.log("Logged in as System Administrator")
         this.loggedInChange.emit(true);
-      }else{          //toggle error animation
+      } else if (this.name === "QAAnalyst" && this.password === "tsylanAAQ") {
+        console.log("Logged in as Quality Assurance Analyst")
+        this.loggedInChange.emit(true);
+      } else if (this.name === "Developer" && this.password === "repoleveD") {
+        console.log("Logged in as Developer")
+        this.loggedInChange.emit(true);
+      } else  {          //toggle error animation
         this.password = "";
       }
 

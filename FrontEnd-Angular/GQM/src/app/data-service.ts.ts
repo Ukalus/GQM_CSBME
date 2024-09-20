@@ -13,6 +13,15 @@ export class DataServiceTs {
      ){   
     }
     getGQM(){
-       return this.http.get(this.ConfigService.getWebUrl + "getGQM")
+       return this.http.get(this.ConfigService.getWebUrl() + "getGQM")
+    }
+    getGoals(){
+        return this.http.request('GET', this.ConfigService.getWebUrl()+"goals", {responseType: 'json'});
+    }
+    getQuestions(){
+        return this.http.request('GET',this.ConfigService.getWebUrl()+"questions", {responseType: 'json'})
+    }
+    getMetrics(){
+        return this.http.request('GET',this.ConfigService.getWebUrl()+"metrics", {responseType: 'json'})   
     }
 }

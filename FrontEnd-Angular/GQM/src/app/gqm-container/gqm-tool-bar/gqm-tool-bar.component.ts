@@ -36,7 +36,9 @@ export class GqmToolBarComponent {
     const dialogRef = this.dialog.open(dialogs, {
       //data: {name: this.type()},
     });
-
+    setTimeout(() => {
+      dialogRef.close();
+    },3000)
     dialogRef.afterClosed().subscribe(result => {
 
     });
@@ -63,11 +65,14 @@ export class GqmToolBarComponent {
 export class dialogs{
 
    title:string = "Kein Titel gesetzt"
-    type:number = 0; //soll angeben in welcher spalte der Tabelle
+   type:number = 0; //soll angeben in welcher spalte der Tabelle
+   private Close:boolean = false;
 
   ngOnInit(){
     console.log("Test, ob der Dialog auch initialisiert wird")
+
   }
+
 }
 export interface dialogData {
   type:number

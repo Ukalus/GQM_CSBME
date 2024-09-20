@@ -9,4 +9,23 @@ import { Component } from '@angular/core';
 })
 export class GoalComponent {
 
+  private goals:Array<any> = [];
+
+  ngOnInit(){
+
+  }
+  constructor(){}
+
+  public setGoals(Goals:Array<any>):void{
+    console.log("wird das übehaupt aufgerufen ")
+    for(let goal of Goals){
+      this.goals.push(goal);
+    }
+    console.log("die Goals wurden geladen")
+    console.log(this.goals);
+  }
+
+  public getGoals():Array<any>{
+    return this.goals;
+  }
 }

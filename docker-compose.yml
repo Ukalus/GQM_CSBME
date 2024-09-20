@@ -24,7 +24,7 @@ services:
       POSTGRES_PASSWORD: nimda
       POSTGRES_DB: admin
       POSTGRES_HOST: postgres
-      FRONTEND_URL: frontend
+      FRONTEND_URL: http://frontend:4200
     ports:
       - "8080:8080"
     depends_on:
@@ -35,7 +35,7 @@ services:
     build: ./FrontEnd-Angular/GQM
     entrypoint: ["/bin/bash", "-c", "npm start"]
     environment:
-      BACKEND_URL: backend
+      BACKEND_URL: http://backend:8080
     ports:
       - "4200:4200"
     depends_on:

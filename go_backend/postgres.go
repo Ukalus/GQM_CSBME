@@ -27,7 +27,12 @@ type Metric struct {
 	UnitMessure string `json:"unitmessure"`
 }
 
+func enableCors(w *http.ResponseWriter) {
+	(*w).Header().Set("Access-Control-Allow-Origin", "*")
+}
+
 func getGoals(w http.ResponseWriter, r *http.Request, db *sql.DB) {
+	enableCors(&w)
 	rows, err := db.Query("SELECT * FROM GQM.goal;")
 	if err != nil {
 		fmt.Println("Query didn't work")
@@ -126,6 +131,7 @@ func deleteGoalById(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 }
 
 func getQuestions(w http.ResponseWriter, r *http.Request, db *sql.DB) {
+	enableCors(&w)
 	rows, err := db.Query("SELECT * FROM GQM.question;")
 	if err != nil {
 		fmt.Println("Query didn't work")
@@ -222,6 +228,7 @@ func deleteQuestionById(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 }
 
 func getMetrics(w http.ResponseWriter, r *http.Request, db *sql.DB) {
+	enableCors(&w)
 	rows, err := db.Query("SELECT * FROM GQM.metric;")
 	if err != nil {
 		fmt.Println("Query didn't work")
