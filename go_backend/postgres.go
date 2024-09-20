@@ -28,7 +28,11 @@ type Metric struct {
 }
 
 func enableCors(w *http.ResponseWriter) {
+<<<<<<< HEAD
 	(*w).Header().Set("Access-Control-Allow-Origin", "*")
+=======
+	(*w).Header().Set("Access-Control-Allow-Origin", "https://gqm.darkoro.org https://gqm-dev.darkoro.org http://localhost:4200 http://localhost:8080")
+>>>>>>> 6f3b9b3405592769dcbe292bcf21d0628dec9468
 }
 
 func getGoals(w http.ResponseWriter, r *http.Request, db *sql.DB) {
@@ -58,6 +62,7 @@ func getGoals(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 }
 
 func getGoalById(w http.ResponseWriter, r *http.Request, db *sql.DB) {
+	enableCors(&w)
 	var slug string
 	const path = "/goals/"
 	if strings.HasPrefix(r.URL.Path, path) {
@@ -90,6 +95,7 @@ func getGoalById(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 }
 
 func insertGoal(w http.ResponseWriter, r *http.Request, db *sql.DB) {
+	enableCors(&w)
 	// Parse the JSON request body
 	var goal Goal
 	if err := json.NewDecoder(r.Body).Decode(&goal); err != nil {
@@ -113,6 +119,7 @@ func insertGoal(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 }
 
 func deleteGoalById(w http.ResponseWriter, r *http.Request, db *sql.DB) {
+	enableCors(&w)
 	var slug string
 	const path = "/goals/delete/"
 	if strings.HasPrefix(r.URL.Path, path) {
@@ -157,6 +164,7 @@ func getQuestions(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 }
 
 func getQuestionById(w http.ResponseWriter, r *http.Request, db *sql.DB) {
+	enableCors(&w)
 	var slug string
 	const path = "/questions/"
 	if strings.HasPrefix(r.URL.Path, path) {
@@ -188,6 +196,7 @@ func getQuestionById(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 }
 
 func insertQuestion(w http.ResponseWriter, r *http.Request, db *sql.DB) {
+	enableCors(&w)
 	// Parse the JSON request body
 	var question Question
 	if err := json.NewDecoder(r.Body).Decode(&question); err != nil {
@@ -210,6 +219,7 @@ func insertQuestion(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 }
 
 func deleteQuestionById(w http.ResponseWriter, r *http.Request, db *sql.DB) {
+	enableCors(&w)
 	var slug string
 	const path = "/questions/delete/"
 	if strings.HasPrefix(r.URL.Path, path) {
@@ -254,6 +264,7 @@ func getMetrics(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 }
 
 func getMetricById(w http.ResponseWriter, r *http.Request, db *sql.DB) {
+	enableCors(&w)
 	var slug string
 	const path = "/metrics/"
 	if strings.HasPrefix(r.URL.Path, path) {
@@ -285,6 +296,7 @@ func getMetricById(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 }
 
 func insertMetric(w http.ResponseWriter, r *http.Request, db *sql.DB) {
+	enableCors(&w)
 	// Parse the JSON request body
 	var metric Metric
 	if err := json.NewDecoder(r.Body).Decode(&metric); err != nil {
@@ -307,6 +319,7 @@ func insertMetric(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 }
 
 func deleteMetricById(w http.ResponseWriter, r *http.Request, db *sql.DB) {
+	enableCors(&w)
 	var slug string
 	const path = "/metrics/delete/"
 	if strings.HasPrefix(r.URL.Path, path) {
