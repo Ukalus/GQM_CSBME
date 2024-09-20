@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+      - develop
+      - frontend
+      - backend
 
 jobs:
   build:
@@ -34,7 +37,15 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Set version tag
-        run: echo "VERSION=0.${{ github.run_number }}.0" >> $GITHUB_ENV
+        run: |
+          BRANCH_NAME=${{ github.ref_name }}
+          if [[ "$BRANCH_NAME" == "main" ]]; then
+            echo "VERSION=1.${{ github.run_number }}.0" >> $GITHUB_ENV
+          elif [[ "$BRANCH_NAME" == "develop" ]]; then
+            echo "VERSION=0.${{ github.run_number }}.0" >> $GITHUB_ENV
+          else
+            echo "VERSION=0.0.${{ github.run_number }}" >> $GITHUB_ENV
+          fi
 
       - name: Check for code changes
         run: |
