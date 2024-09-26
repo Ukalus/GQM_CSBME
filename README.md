@@ -38,6 +38,22 @@ The best, blazingly fast solution for your GQM needs
 
 ## Deployment
 
+### Environments
+
+#### Produktiv
+**Backend**
+https://gqm-backend.darkoro.org/
+
+**Frontend**
+https://gqm.darkoro.org/
+
+#### Development
+**Backend**
+https://gqm-backend-dev.darkoro.org/
+
+**Frontend**
+https://gqm-dev.darkoro.org/
+
 ### Kubernetes
 Diese App wird auf einem privaten Kubernetes-Cluster ausgerollt und ist öffentlich erreichbar.
 
