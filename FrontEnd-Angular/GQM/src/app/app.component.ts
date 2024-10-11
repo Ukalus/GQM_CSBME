@@ -30,7 +30,7 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.logedIn = false;
+    this.logedIn = true;
   }
 
 

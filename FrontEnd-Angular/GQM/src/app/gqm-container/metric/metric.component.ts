@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GQMItemComponent } from '../gqm-item/gqm-item.component';
 
 @Component({
   selector: 'app-metric',
@@ -9,11 +10,11 @@ import { Component } from '@angular/core';
 })
 export class MetricComponent {
 
-  private metrics:Array<any> = [];
+  private metrics:Array<GQMItemComponent> = [];
 
   public  setMetrics(metrics:Array<any>):void{
     for(let metric of metrics){
-      this.metrics.push(metric);
+      this.metrics.push(new GQMItemComponent(metric));
     }
     console.log("Hier wurden jetzt die Metrics in MetricComponent gesetzt");
     console.log(metrics);

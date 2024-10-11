@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GQMlayerComponent } from './gqmlayer.component';
+import { GQMItemComponent } from './gqm-item.component';
 
-describe('GQMlayerComponent', () => {
-  let component: GQMlayerComponent;
-  let fixture: ComponentFixture<GQMlayerComponent>;
+describe('GQMItemComponent', () => {
+  let component: GQMItemComponent;
+  let fixture: ComponentFixture<GQMItemComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GQMlayerComponent]
+      imports: [GQMItemComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(GQMlayerComponent);
+    fixture = TestBed.createComponent(GQMItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

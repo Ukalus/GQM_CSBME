@@ -1,5 +1,4 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import { GQMlayerComponent } from './gqmlayer/gqmlayer.component';
 import { GqmToolBarComponent } from './gqm-tool-bar/gqm-tool-bar.component';
 import { DataServiceTs } from '../data-service.ts';
 import { GoalComponent } from './goal/goal.component';
@@ -10,7 +9,6 @@ import { MetricComponent } from './metric/metric.component';
   selector: 'app-gqm-container',
   standalone: true,
   imports: [
-    GQMlayerComponent,
     GqmToolBarComponent,
     GoalComponent,
     QuestionComponent,
