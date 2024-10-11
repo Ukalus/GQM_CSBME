@@ -1,16 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-gqm-item',
   standalone: true,
   imports: [],
   templateUrl: './gqm-item.component.html',
-  styleUrl: './gqm-item.component.scss'
+  styleUrls: ['./gqm-item.component.scss'] // Korrigiere styleUrl zu styleUrls
 })
 export class GQMItemComponent {
-
-
-  constructor(DataItem:any){
-
+  constructor(@Inject('DataItem') private dataItem: any) {
+    console.log(dataItem);
   }
 }
