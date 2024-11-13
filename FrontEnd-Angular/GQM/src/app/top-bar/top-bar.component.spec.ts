@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GQMlayerComponent } from './gqmlayer.component';
+import { TopBarComponent } from './top-bar.component';
 
-describe('GQMlayerComponent', () => {
-  let component: GQMlayerComponent;
-  let fixture: ComponentFixture<GQMlayerComponent>;
+describe('TopBarComponent', () => {
+  let component: TopBarComponent;
+  let fixture: ComponentFixture<TopBarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GQMlayerComponent]
+      imports: [TopBarComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(GQMlayerComponent);
+    fixture = TestBed.createComponent(TopBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

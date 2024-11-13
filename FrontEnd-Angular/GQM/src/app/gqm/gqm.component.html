@@ -1,0 +1,19 @@
+<div class="wrapper" *ngIf="isShown">
+    
+    <button *ngIf="data.length> 7 && offset !=0" (click)="selectedPrev()"><</button>
+    
+    <div class="goalWrapper">
+        <div *ngFor="let item of items" class="itemContainer" (click)="selectedItem(item)">
+            <div class="item" *ngIf="item.selected" [ngStyle]="{'border-color': 'orange'}"><p>{{item.value}}</p></div>
+            <div class="item" *ngIf="!item.selected" [ngStyle]="{'border-color':'black'}"><p>{{item.value}}</p></div>
+        </div>
+    </div>
+    
+    <button *ngIf="data.length > 7 && data.length > offset +7" (click)="selectedNext()">></button>
+
+    <div class="toolbar" *ngIf="hasToolbar" >
+        <button class="functionButton">Add</button>
+        <button class="functionButton">Edit</button>
+        <button class="functionButton">DEL</button>
+    </div>
+</div>

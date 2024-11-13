@@ -1,2 +1,8 @@
-<app-login-page *ngIf="!this.logedIn" (loggedInChange)="onLogedInInChange($event)"></app-login-page>
-<app-gqm-container class="gqm-container" *ngIf="this.logedIn"></app-gqm-container>
+<app-login-page *ngIf="!this.logedIn" (loggedInChange)="onLogedInInChange($event)" (UserCahnge)="onUserChange($event)"></app-login-page>
+<div *ngIf="this.logedIn" class="main" >
+    <app-top-bar class="topBar" [user]="user" (loggedOut)="onLoggedOut($event)" (ProjectSelected)="onProjectChange($event)"></app-top-bar>
+    <div class="padding"></div>
+    <app-gqm *ngIf="projectSelected" class="gqm" [rowName]="'Goal'" [user]="user" [isShown]="true" [data]="goals" (GoalSelected)="onGoalSelected($event)" ></app-gqm>
+    <app-gqm *ngIf="projectSelected" class="gqm" [rowName]="'Question'" [user]="user" [isShown]="showQuestions" [data]="questions" (QuestionSelected)="onQuestionSelected($event)"></app-gqm>
+    <app-gqm *ngIf="projectSelected" class="gqm" [rowName]="'Metric'" [user]="user" [isShown]="showMetrics" [data]="metrics" ></app-gqm>
+</div>

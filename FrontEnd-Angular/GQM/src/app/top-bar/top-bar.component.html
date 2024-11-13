@@ -1,0 +1,13 @@
+<div class="container">
+    <div *ngIf="protectedsLoaded" class="dropList">
+        <select class="projectSelect" >
+            <option value="" (click)="changeSelectedProject('Bitte ein Projekt auswählen')">Bitte ein Projekt auswählen</option>
+            <option *ngFor="let project of projects" value="{{project}}" (click)="changeSelectedProject(project)">{{project}}</option>
+        </select>
+    </div>
+    <div class="title">{{title}}</div>
+    <div class="logOut">
+        <p class="roleName">{{rollName}}</p>
+        <button class="LogoutButton" (click)="logOut()" aria-placeholder="X">X</button>
+    </div>
+</div>
