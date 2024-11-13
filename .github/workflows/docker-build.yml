@@ -20,7 +20,7 @@ jobs:
         run: git fetch --prune --unshallow
 
       - name: Setup docker build tool
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v3
 
       - name: Prepare docker-layer cache
         uses: actions/cache@v3
