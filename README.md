@@ -22,30 +22,45 @@ The best, blazingly fast solution for your GQM needs
 
 ## Anforderungsanalyse (Nico, Lasse, Philippe, Anton, Lucas)
 
-[link zu anforderungstabelle](doku/anforderungstabelle)
+[Link zu Anforderungstabelle](doku/anforderungstabelle)
 
-## Ablaufdiagramm (Lasse)
+## Ablaufdiagramm (Lasse & Nico)
+#### Nico
+![aktuelle_implementierung](doku/Ablaufdiagramme/current_implementation.png)
 
-![doku/ablaufplan.png](doku/ER_Diagram.drawio.svg)
-
+#### Lasse
+![volle_implementierung](doku/Ablaufdiagramme/full_program.png)
 
 ### ER-Diagramm (Lucas)
-![doku/ER_Diagram.drawio.png](doku/ER_Diagram.drawio.png)
-
-### Mockups (Nico, Philippe)
-
-![doku/gqm_mockup.png](doku/login_mockup1.png)
+![er-diagram](doku/Datenbank/ERD.png)
 
 ### Wireframes (Nico, Philippe)
 
-![doku/gqm_mockup.png](doku/gqm_mockup.png)
+![login-draft](doku/Wireframes/login_first-draft.png)
+![dev1](doku/Wireframes/dev_unselected-goal.png)
+![qs1](doku/Wireframes/qs_selected-goal.png)
+![qs2](doku/Wireframes/qs_selected-question.png)
+![qs3](doku/Wireframes/gqm_qs_all-selected.png)
+![qsa](doku/Wireframes/gqm_qsa.png)
+![add](doku/Wireframes/add_gqm.png)
+![edit](doku/Wireframes/edit_gqm.png)
+![delete](doku/Wireframes/delete_gqm.png)
+
+### Mockups (Nico, Philippe)
+![login1](doku/Mockups/login_first-draft.png)
+
+#### Nico
+
+![login2](doku/Mockups/login_final.png)
+![dev](doku/Mockups/gqm_dev.png)
+![qsa](doku/Mockups/gqm_qsa.png)
 
 ### UML Diagram (Nico)
 
-![doku/gqm_mockup.png](doku/UML_gqm.png)
+![doku/gqm_mockup.png](doku/UML/UML_gqm.png)
 
 
-#### Produktiv
+### Produktiv
 
 **Backend**
 https://gqm-backend.darkoro.org/
@@ -53,7 +68,7 @@ https://gqm-backend.darkoro.org/
 **Frontend**
 https://gqm.darkoro.org/
 
-#### Development
+### Development
 **Backend**
 https://gqm-backend-dev.darkoro.org/
 
@@ -68,9 +83,9 @@ Dafür wurde ein für diese Anwendungen entwickeltes [HelmChart](https://github.
 In diesem Repository getätigte Änderungen triggern einen GitHub-Workflow, welcher Front- und Backend-Ordner (./FrontEnd-Angular/GQM/ bzw. ./go_backend/) auf Änderungen prüft und bei vorhandenen Änderungen ein neues Image baut.
 Dieses jeweilige Image wird vom Kubernetes-Cluster durch die Nutzung des Flux Helm Controllers und der dort integrierten Image Update Automation automatisiert neu ausgerollt.
 
-### Resourcen in der Einzelübersicht
-![deployment](./doku/deployments.png)
-![statefulset](./doku/statefulset.png)
-![pods](./doku/pods.png)
-![services](./doku/services.png)
-![ingresses](./doku/ingresses.png)
+### Ressourcen in der Einzelübersicht
+![deployment](doku/CI-CD/deployments.png)
+![statefulset](doku/CI-CD/statefulset.png)
+![pods](doku/CI-CD/pods.png)
+![services](doku/CI-CD/services.png)
+![ingresses](doku/CI-CD/ingresses.png)
