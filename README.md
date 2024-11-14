@@ -20,11 +20,11 @@ The best, blazingly fast solution for your GQM needs
 - Angular (Frontend)
 - Postgraphile (Backend)
 
-## Anforderungsanalyse (Nico, Lasse, Jean, Anton, Lucas)
+## Anforderungsanalyse (Nico, Lasse, Philippe, Anton, Lucas)
 
 [link zu anforderungstabelle](doku/anforderungstabelle)
 
-## Ablaufdiagram (Lasse)
+## Ablaufdiagramm (Lasse)
 
 ![doku/ablaufplan.png](doku/ER_Diagram.drawio.svg)
 
@@ -32,11 +32,11 @@ The best, blazingly fast solution for your GQM needs
 ### ER-Diagramm (Lucas)
 ![doku/ER_Diagram.drawio.png](doku/ER_Diagram.drawio.png)
 
-### Mockups (Nico)
+### Mockups (Nico, Philippe)
 
 ![doku/gqm_mockup.png](doku/login_mockup1.png)
 
-### Wireframes (Philippe)
+### Wireframes (Nico, Philippe)
 
 ![doku/gqm_mockup.png](doku/gqm_mockup.png)
 
@@ -60,7 +60,7 @@ https://gqm-backend-dev.darkoro.org/
 **Frontend**
 https://gqm-dev.darkoro.org/
 
-### Kubernetes
+### CI/CD (Philippe)
 Diese App wird auf einem privaten Kubernetes-Cluster ausgerollt und ist öffentlich erreichbar.
 
 Dafür wurde ein für diese Anwendungen entwickeltes [HelmChart](https://github.com/jpkraemer-mg/helmcharts/tree/main/charts/gqm) genutzt, welches sich um das Ausrollen des Front- und Backends sowie einer PostgreSQL-Datenbank kümmert.
