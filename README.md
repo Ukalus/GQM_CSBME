@@ -1,8 +1,7 @@
 # GQM_CSBME
 The best, blazingly fast solution for your GQM needs
 
-## Planung 
-
+## Planung
 ### Verteilung
 - Planung (Lasse - nachträglich eingestiegen)
 - Frontend (Nico)
@@ -11,7 +10,6 @@ The best, blazingly fast solution for your GQM needs
 - Design (Anton (Ursprünglich geplant), Jean-Philippe, Nico)
 
 ### Techstack
-
 - PostgreSQL (Datenbank) 
 - Kubernetes (Deployment)
   - Deployment (Front-/Backend)
@@ -25,7 +23,6 @@ The best, blazingly fast solution for your GQM needs
   - ursprünglich Go (Backend)
 
 ## Anforderungsanalyse (Nico, Lasse, Philippe, Anton, Lucas)
-
 [Link zu Anforderungstabelle](doku/anforderungstabelle)
 
 ## Ablaufdiagramm (Lasse & Nico)
@@ -39,7 +36,6 @@ The best, blazingly fast solution for your GQM needs
 ![er-diagram](doku/Datenbank/ERD.png)
 
 ### Wireframes (Nico, Philippe)
-
 ![login-draft](doku/Wireframes/login_first-draft.png)
 ![dev1](doku/Wireframes/dev_unselected-goal.png)
 ![qs1](doku/Wireframes/qs_selected-goal.png)
@@ -54,32 +50,24 @@ The best, blazingly fast solution for your GQM needs
 ![login1](doku/Mockups/login_first-draft.png)
 
 #### Nico
-
 ![login2](doku/Mockups/login_final.png)
 ![dev](doku/Mockups/gqm_dev.png)
 ![qsa](doku/Mockups/gqm_qsa.png)
 
 ### UML Diagram (Nico)
-
 ![doku/gqm_mockup.png](doku/UML/UML_gqm.png)
 
-
+### CI/CD und Systeme (Philippe)
 ### Produktiv
+Backend < --- > https://gqm-backend.darkoro.org/
 
-**Backend**
-https://gqm-backend.darkoro.org/
-
-**Frontend**
-https://gqm.darkoro.org/
+Frontend < --- > https://gqm.darkoro.org/
 
 ### Development
-**Backend**
-https://gqm-backend-dev.darkoro.org/
+Backend < --- > https://gqm-backend-dev.darkoro.org/
 
-**Frontend**
-https://gqm-dev.darkoro.org/
+Frontend < --- > https://gqm-dev.darkoro.org/
 
-### CI/CD (Philippe)
 Diese App wird auf einem privaten Kubernetes-Cluster ausgerollt und ist öffentlich erreichbar.
 
 Dafür wurde ein für diese Anwendungen entwickeltes [HelmChart](https://github.com/jpkraemer-mg/helmcharts/tree/main/charts/gqm) genutzt, welches sich um das Ausrollen des Front- und Backends sowie einer PostgreSQL-Datenbank kümmert.
