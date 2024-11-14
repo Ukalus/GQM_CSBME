@@ -4,7 +4,7 @@ The best, blazingly fast solution for your GQM needs
 ## Planung 
 
 ### Verteilung
-
+- Planung (Lasse)
 - Frontend (Nico)
 - Backend (Lucas)
 - DevOps (Jean-Philippe)
@@ -18,25 +18,47 @@ The best, blazingly fast solution for your GQM needs
   - Service (Front-/Backend)
   - Ingress (Frontend)
 - Angular (Frontend)
-- Go (Backend)
+- Postgraphile (Backend)
 
-### Use-Case-Diagramm
+## Anforderungsanalyse (Nico, Lasse, Jean, Anton, Lucas)
 
-### ER-Diagramm
-![doku/ER_Diagram.drawio.svg](doku/ER_Diagram.drawio.svg)
-## Frontend 
+[link zu anforderungstabelle](doku/anforderungstabelle)
 
-### Sitemaps
+## Ablaufdiagram (Lasse)
 
-### Wireframes 
+![doku/ablaufplan.png](doku/ER_Diagram.drawio.svg)
 
-## Backend
 
-### Datenstrukturen
+### ER-Diagramm (Lucas)
+![doku/ER_Diagram.drawio.png](doku/ER_Diagram.drawio.png)
 
-### API
+### Mockups (Nico)
 
-## Deployment
+![doku/gqm_mockup.png](doku/login_mockup1.png)
+
+### Wireframes (Philippe)
+
+![doku/gqm_mockup.png](doku/gqm_mockup.png)
+
+### UML Diagram (Nico)
+
+![doku/gqm_mockup.png](doku/UML_gqm.png)
+
+
+#### Produktiv
+
+**Backend**
+https://gqm-backend.darkoro.org/
+
+**Frontend**
+https://gqm.darkoro.org/
+
+#### Development
+**Backend**
+https://gqm-backend-dev.darkoro.org/
+
+**Frontend**
+https://gqm-dev.darkoro.org/
 
 ### Kubernetes
 Diese App wird auf einem privaten Kubernetes-Cluster ausgerollt und ist öffentlich erreichbar.
