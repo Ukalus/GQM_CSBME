@@ -4,11 +4,11 @@ The best, blazingly fast solution for your GQM needs
 ## Planung 
 
 ### Verteilung
-- Planung (Lasse)
+- Planung (Lasse - nachträglich eingestiegen)
 - Frontend (Nico)
 - Backend (Lucas)
-- DevOps (Jean-Philippe)
-- Design (Anton)
+- DevOps bzw. CI/CD und allg. Unterstützung (Jean-Philippe)
+- Design (Anton (Ursprünglich geplant), Jean-Philippe, Nico)
 
 ### Techstack
 
@@ -17,8 +17,12 @@ The best, blazingly fast solution for your GQM needs
   - Deployment (Front-/Backend)
   - Service (Front-/Backend)
   - Ingress (Frontend)
+- GitHub (CI/CD, Security)
+  - Renovate Bot (Security)
+  - Workflow (CI/CD-Pipeline)
 - Angular (Frontend)
 - Postgraphile (Backend)
+  - ursprünglich Go (Backend)
 
 ## Anforderungsanalyse (Nico, Lasse, Philippe, Anton, Lucas)
 
