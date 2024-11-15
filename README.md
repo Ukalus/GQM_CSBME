@@ -23,7 +23,7 @@ The best, blazingly fast solution for your GQM needs
   - ursprünglich Go (Backend)
 
 ## Anforderungsanalyse (Nico, Lasse, Philippe, Anton, Lucas)
-[Link zu Anforderungstabelle](doku/anforderungstabelle)
+[Link zu Anforderungstabelle](doku/userstories.ods)
 
 ## Ablaufdiagramm (Lasse & Nico)
 #### Nico
