@@ -28,7 +28,7 @@ The best, blazingly fast solution for your GQM needs
 
 ## TestFälle (Nico, Lasse, Philippe, Lucas)
 
-[Link zu Testfällen](doku/testcases.ods)
+[Link zu Testfällen](doku/testcases.xlsx)
 
 
 ## Ablaufdiagramm (Lasse & Nico)
