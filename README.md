@@ -41,7 +41,7 @@ The best, blazingly fast solution for your GQM needs
 ### ER-Diagramm (Lucas)
 ![er-diagram](doku/Datenbank/ERD.png)
 
-### Wireframes (Nico, Philippe)
+### Wireframes (Nico, Philippe, Anton)
 ![login-draft](doku/Wireframes/login_first-draft.png)
 ![dev1](doku/Wireframes/dev_unselected-goal.png)
 ![qs1](doku/Wireframes/qs_selected-goal.png)
