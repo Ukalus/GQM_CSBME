@@ -26,7 +26,7 @@ The best, blazingly fast solution for your GQM needs
 ## Anforderungsanalyse (Nico, Lasse, Philippe, Anton, Lucas)
 [Link zu Anforderungstabelle](doku/userstories.ods)
 
-## TestFälle (Nico, Lasse, Philippe, Lucas)
+## TestFälle (Nico, Lasse, Philippe, Lucas, Anton)
 
 [Link zu Testfällen](doku/testcases.xlsx)
 
