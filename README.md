@@ -8,7 +8,7 @@ The best, blazingly fast solution for your GQM needs
 - Backend (Lucas)
 - DevOps bzw. CI/CD und allg. Unterstützung (Jean-Philippe)
 - Qualitätsmanagement( Lucas )
-- Design (Anton (Ursprünglich geplant), Jean-Philippe, Nico)
+- Design (Anton , Jean-Philippe, Nico)
 
 ### Techstack
 - PostgreSQL (Datenbank) 
